@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bus.dao.BusRepairToolMapper">
+
+    <select id="getBusToolList" resultType="java.util.Map" >
+        select bd.*,bu.realName from bus_repair_tool bd
+        LEFT JOIN bus_user bu
+        ON bd.createUser = bu.id
+        <where>
+            <if test="name != null and name != ''">
+                bd.`name` like #{name}
+            </if>
+        </where>
+        order by bd.createTime desc
+    </select>
+
+    <select id="countToolByName" resultType="java.lang.Integer" >
+        select count(id) from bus_repair_tool where `name` = #{name}
+    </select>
+
+    <insert id="save" parameterType="com.bus.model.BusRepairTool" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO `bus_repair_tool`
+        ( `name`, `balance`, `version`, `createUser`, `createTime`) VALUES
+        ( #{name}, #{balance}, #{version}, #{createUser}, #{createTime})
+    </insert>
+
+    <insert id="saveOperate" parameterType="com.bus.model.BusRepairToolOperate" useGeneratedKeys="true" keyProperty="id" >
+       INSERT INTO `bus_repair_tool_operate`
+       (`toolId`, `type`, `remark`, `operateAmount`, `balanceAmount`, `createUser`, `createTime`)
+       VALUES
+       (#{toolId}, #{type}, #{remark}, #{operateAmount}, #{balanceAmount}, #{createUser}, #{createTime});
+
+    </insert>
+
+    <select id="getToolOperateList"  resultType="java.util.Map" >
+        select bdo.*,bd.`name`,bu.realName from bus_repair_tool_operate bdo
+        LEFT JOIN bus_repair_tool bd
+        ON bdo.toolId = bd.id
+        LEFT JOIN bus_user bu
+        ON bdo.createUser = bu.id
+        <where>
+            <if test="name != null and name != ''">
+                bd.`name` like #{name}
+            </if>
+        </where>
+        order by bdo.createTime desc
+    </select>
+
+    <delete id="delete" >
+        delete from bus_repair_tool where id = #{id}
+    </delete>
+
+    <delete id="deleteOperate" >
+        delete from bus_repair_tool_operate where toolId = #{id}
+    </delete>
+
+    <select id="get" resultType="com.bus.model.BusRepairTool" >
+        select * from bus_repair_tool where  id = #{id}
+    </select>
+
+    <update id="update" parameterType="com.bus.model.BusRepairTool" >
+        update bus_repair_tool
+        set balance = #{balance},
+            version = version + 1
+            where  id = #{id} and version = #{version}
+    </update>
+
+    <select id="getToolData" resultType="java.util.Map" >
+        select id ,CONCAT_WS('-库存为',`name`,balance) `name` from bus_repair_tool
+    </select>
+</mapper>

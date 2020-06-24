@@ -1,0 +1,218 @@
+@charset "utf-8";
+/*公用样式*/
+*{
+    margin:0;
+    padding:0;
+
+}
+html,body{
+    background:#fff;
+    height:100%;
+}
+body,div,td,input,button,a,h1,h2,h3,h4,h5,p,a,ul,li,label,select,i,strong,textarea{
+    margin:0;
+    padding:0;
+    font-size:12px;
+    font-family:'微软雅黑' ,Arial, Verdana;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    color: #333;
+}
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+.pull-left{
+    float: left;
+}
+.pull-right{
+    float: right;
+}
+.clearfix:after{
+    content: "020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    /* 触发 hasLayout */
+    zoom: 1;
+}
+/*登录页样式*/
+.login-header{
+    width:1020px;
+    margin:0 auto;
+    height:70px;
+    padding-top:50px;
+}
+.login-logo{
+    width:310px;
+    height:45px;
+    background:url("../img/login/img.png")  left -54px no-repeat;
+}
+.login-box{
+    height:400px;
+    background:#0085d0 url("../img/login/back-01.png");
+    overflow:hidden;
+}
+.login-wrapper{
+    width:1000px;
+    height:400px;
+    margin:0 auto;
+}
+.login-adv{
+    width: 500px;
+    height: 400px;
+}
+.login-adv-img{
+    width: 366px;
+    height: 199px;
+    margin: 85px auto 0 auto;
+    background: url("../img/login/img.png") left -183px no-repeat;
+}
+.login-pannel{
+    width: 500px;
+    height: 400px;
+}
+.login-back{
+    margin:10px auto 0 auto;
+    width:400px;
+    height:460px;
+    background:#fff url("../img/login/img.png") left -365px no-repeat;
+    border-radius:25px;
+    text-align:center;
+    transform:rotate(9deg);
+    -ms-transform:rotate(9deg); /* Internet Explorer */
+    -moz-transform:rotate(9deg); /* Firefox */
+    -webkit-transform:rotate(9deg); /* Safari 和 Chrome */
+    -o-transform:rotate(9deg); /* Opera */
+}
+.login-body{
+    width:305px;
+    height:400px;
+    margin:0 auto;
+    transform:rotate(-9deg);
+    -ms-transform:rotate(-9deg); /* Internet Explorer */
+    -moz-transform:rotate(-9deg); /* Firefox */
+    -webkit-transform:rotate(-9deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-9deg); /* Opera */
+}
+.login-title{
+    height:100px;
+    line-height:110px;
+    font-size:17px;
+    font-weight: 300;
+    color:#5c5c5c;
+    word-spacing:8px;
+    letter-spacing: 10px
+}
+
+.login-form{
+    position:relative;
+    height:35px;
+    line-height:35px;
+    margin-bottom:24px;
+    display: inline-block;
+    width: 100%;
+
+}
+.login-form label{
+    position:absolute;
+    display: block;
+    left:10px;
+    top:11px;
+    width:50px;
+    height:35px;
+}
+.login-form input{
+    width:270px;
+    line-height:35px;
+    height:35px;
+    background:#fff;
+    border:1px solid #ddd;
+    padding-left:30px;
+    border-radius:3px;
+}
+/*头部图标定义*/
+.icon-user{
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url("../img/login/img.png") -83px -112px no-repeat;
+}
+.icon-psaaword{
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url("../img/login/img.png") -108px -112px no-repeat;
+}
+
+
+.login-body .choose-password{
+    text-align: left;
+    color: #333;
+    margin-bottom: 24px;
+    padding: 0 0 0 20px;
+}
+.login-body .choose-password input{
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 3px;
+}
+.login-body .choose-password a{
+    float:right;
+    color: #333;
+    margin-bottom:24px;
+}
+.login-body .choose-password a:hover{
+    color:#0085d0;
+}
+.login-btn{
+    width:100%;
+    text-align:center;
+    height:35px;
+    line-height: 35px;
+    background:#0085d0;
+    border:1px solid #4A81C4;
+    border-radius:3px;
+    color:#fff;
+    display:block;
+    cursor: pointer;
+}
+.login-btn:hover{
+    background:#4b9ff5;
+}
+.login-btn-disabled{
+    background:#4b9ff5;
+    cursor: not-allowed;
+}
+
+.login-copyright{
+    text-align:center;
+    color:#5c5c5c;
+    line-height:100px;
+}
+#changeCode:hover{
+    color:#f00;
+    cursor: pointer;
+    text-decoration: underline;
+}
+#loginCode{
+    width: 78px;text-align: center;padding-left:0;float: left;
+}
+#login-code-img{
+    width: 100px;height:37px;float: left;margin: 0 6px;
+    background-color: #666;
+}

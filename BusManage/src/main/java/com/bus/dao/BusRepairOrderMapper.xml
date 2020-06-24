@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bus.dao.BusRepairOrderMapper">
+
+    <select id="getBusOrderList" resultType="java.util.Map" >
+        select bro.*,bue.realName,bue.phone,wk.realName worker,binf.`name` busName from bus_repair_order bro
+        LEFT JOIN bus_user bue
+        ON bro.userId = bue.id
+        LEFT JOIN bus_user wk
+        on bro.repairUser = wk.id
+        LEFT JOIN bus_info binf
+        ON bro.busId = binf.id
+        <where>
+            <if test="userId != null">
+                bro.userId = #{userId}
+            </if>
+            <if test="busName != '' and busName != null">
+               and binf.`name` like #{busName}
+            </if>
+            <if test="name != '' and name != null">
+                and bue.realName like #{name}
+            </if>
+            <if test="workerId != null">
+                and bro.repairUser= #{workerId}
+            </if>
+            <if test="type != null">
+                and bro.repairUser is not null
+            </if>
+            and bro.delFlag = 0
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.bus.model.BusRepairOrder" useGeneratedKeys="true" keyProperty="id" >
+       INSERT INTO `bus_repair_order`
+        (`userId`, `ysAmount`, `busId`, `repairUser`, `status`, `payStatus`, `sjAmount`, `delFlag`, `createTime`, `remark`) VALUES
+        (#{userId}, #{ysAmount}, #{busId}, #{repairUser}, #{status}, #{payStatus}, #{sjAmount}, #{delFlag}, #{createTime}, #{remark})
+    </insert>
+
+    <update id="delete" >
+        update bus_repair_order
+        set delFlag = 1
+        where id = #{id}
+    </update>
+
+    <update id="updateBusOrder" parameterType="com.bus.model.BusRepairOrder" >
+        UPDATE `bus_repair_order`
+        SET
+        `ysAmount`=#{ysAmount},
+        `remark`= #{remark},
+        busId = #{busId}
+        WHERE `id`=#{id}
+    </update>
+
+    <update id="updateBusOrderRepairUser" parameterType="com.bus.model.BusRepairOrder" >
+        UPDATE `bus_repair_order`
+        SET
+         `status` = 2,
+        `repairUser`=#{repairUser}
+        WHERE `id`=#{id}
+    </update>
+
+    <update id="updateBusOrderStatus" parameterType="com.bus.model.BusRepairOrder" >
+        UPDATE `bus_repair_order`
+        SET
+         `status` = #{status}
+        WHERE `id`=#{id}
+    </update>
+
+    <select id="get" resultType="com.bus.model.BusRepairOrder" >
+        select * from bus_repair_order where  id = #{id}
+    </select>
+
+    <insert id="savePaiJian"  parameterType="com.bus.model.BusRepairPaiJian" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO `bus_repair_paijian`
+        (`repairId`, `wuLiaoId`,`price`,`name`,`type`, `amount`, `repairUser`, `createTime`) VALUES
+        (#{repairId}, #{wuLiaoId}, #{price},#{name},#{type},#{amount}, #{repairUser}, #{createTime})
+    </insert>
+
+    <select id="getPaiJianByOrderIdAndWuliaoId" resultType="com.bus.model.BusRepairPaiJian" >
+        select * from bus_repair_paijian where repairId = #{id} and wuLiaoId = #{wuId}
+    </select>
+
+    <update id="updatePaiJian" parameterType="com.bus.model.BusRepairPaiJian" >
+        update bus_repair_paijian
+        set amount = #{amount}
+        where id = #{id}
+    </update>
+
+    <select id="getPaijianByType" resultType="com.bus.model.BusRepairPaiJian" >
+        select * from bus_repair_paijian where repairId = #{id} and type = #{type}
+    </select>
+
+    <select id="getPaiJianById" resultType="com.bus.model.BusRepairPaiJian" >
+        select * from bus_repair_paijian where id = #{id}
+    </select>
+</mapper>

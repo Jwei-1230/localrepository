@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* 按钮 */
+.t-btn { display: inline-block; padding: 7px 14px; font-size: 12px; line-height: 1; border-radius: 4px; border: 1px solid #DDD; background: #fff; text-decoration: none; cursor: pointer; position: relative; white-space: nowrap; outline: none; color: #333; }
+.t-btn:hover { background: #F9F9F9; border-color: #CCC; color: #333; }
+.t-btn:active { background: #EEE; border-color: #CCC; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset; }
+
+/* 蓝色按钮 */
+.t-btn-blue { background: #3a8adf; color: #fff; }
+.t-btn-blue:hover { background: #4b9ff5; color: #fff; }
+.t-btn-blue:active { background: #2873c4; color: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset; }
+
+/* 蓝色确认审核按钮 */
+.t-btn-blue-order{width: 45%; margin: 15px auto; text-align: center; display: block; height: 30px; line-height: 30px;}
+
+/* 绿色按钮 */
+.t-btn-green { background: #73a931;; color: #fff; }
+.t-btn-green:hover { background: #81bf3a; color: #fff; }
+.t-btn-green:active { background: #64932b;color: #fff; }
+
+/* 红色色按钮 */
+.t-btn-red { background: #F04B3C;; color: #fff; }
+.t-btn-red:hover { background: #F04B3C; color: #fff; }
+.t-btn-red:active { background: #F04B3C;color: #fff; }
+
+/* 禁用按钮 */
+.t-btn-disabled { background: #F9F9F9;  color: #AAA; cursor: not-allowed; }
+.t-btn-disabled:hover { background: #F9F9F9; color: #AAA; }
+.t-btn-disabled:active { box-shadow: none; }
+
+/*尺寸及链接样式*/
+.t-btn-sm { padding: 4px 5px; }
+.t-btn-lg { font-size: 14px; padding: 12px 30px; padding: 13px 30px 11px 30px\9; }
+.t-btn-link { padding: 0px; border: none; text-decoration: none; cursor: pointer; position: relative; white-space: nowrap; outline: none; font-size: 12px; color: #347AC7; }
+
+/*搜索按钮*/
+.t-columns-group li > div .bg-date { background: #FFF url("../../../img/btn-icon.png")no-repeat right -3px;}
+
+.t-btn-addRole{margin-left: 3px;}
+.content-btn{
+    line-height: 0px;
+}
+#edui_fixedlayer{
+    z-index: 1060 !important;
+}

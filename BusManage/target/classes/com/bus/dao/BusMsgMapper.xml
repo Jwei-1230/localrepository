@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bus.dao.BusMsgMapper">
+
+    <select id="getBusMsgList" resultType="java.util.Map" >
+        select bm.*,bs.realName,bs.phone from bus_msg bm
+        LEFT JOIN bus_user bs
+        ON bm.userId = bs.id
+        <where>
+            <if test="content != '' and content != null">
+                bm.`content` like #{content}
+            </if>
+            <if test="name != '' and name != null">
+                and bs.realName like #{name}
+            </if>
+            <if test="userId != null">
+                and bs.id = #{userId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.bus.model.BusMsg" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO `bus_msg`
+        (`userId`, `content`, `createTime`) VALUES
+        (#{userId}, #{content}, #{createTime})
+
+    </insert>
+
+    <delete id="delete" >
+        delete  from  bus_msg
+        where id = #{id}
+    </delete>
+
+    <update id="updateMsg" parameterType="com.bus.model.BusMsg" >
+        UPDATE `bus_msg`
+        SET
+        `content`=#{content}
+        WHERE `id`=#{id}
+    </update>
+</mapper>

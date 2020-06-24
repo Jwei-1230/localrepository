@@ -1,0 +1,135 @@
+﻿@charset "UTF-8";
+
+.show { display: block; visibility: visible; }
+.hide { display: none; visibility: hidden; }
+
+/* t-layout-ra */
+.t-layout-ra { padding: 0; margin: 0; }
+.t-layout-ra .ra-left { position: relative; float: left;padding: 10px; width: 280px; background: #FFF; margin-right: -301px;min-height: 578px;border-right: 1px solid #ddd; }
+.t-layout-ra .ra-right { float: right; width: 100%; }
+.t-layout-ra .ra-right .ra-rightinner { margin-left: 301px; background: #FFF;padding-bottom: 10px;}
+
+/* t-list */
+.t-list { background: #FFF; padding:10px;position: relative;}
+.t-list-title { border-bottom: 4px solid #bdddf2; }
+.t-list-title > h2 {height: 40px; line-height: 40px; margin: 0; padding: 0; font-weight: normal; font-size: 16px; color: #333; display: inline-block; }
+.t-list-title > h2 a{ color: #0085d0;}
+.t-list-title > div { display: inline-block; float: right; text-align: right; font-size: 12px; }
+
+/* t-list-search */
+.t-list-search { padding: 10px; background: #F9F9F9; margin-bottom: 10px; position: relative;border: 1px solid #E8E8E8; }
+.t-list-search-more { position: absolute; bottom: -10px; left: 50%; margin-left: -30px; width: 60px; height: 10px; box-sizing: border-box; background: #F9F9F9; cursor: pointer; border: 1px solid #E8E8E8; border-top: none; text-align: center; font-size: 12px; line-height: 10px; color: #666; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;}
+
+/* t-columns */
+.t-columns-1 .t-columns-group { padding-right: 12%; }
+.t-columns-1 li { width: 100%; }
+.t-columns-1 li > label { width: 28%; }
+.t-columns-1 #state-other-info li > label{ width: 42%; }
+.t-columns-1 li > div { width: 66%; }
+.t-columns-1 #state-other-info li > div { width: 56%; }
+.t-columns-1 li > div span{ padding-right: 10%; }
+.t-columns-2 .t-columns-group { padding-right: 9%; }
+.t-columns-2 li { width: 50%; }
+.t-columns-2 li > label { width: 35%; }
+.t-columns-2 li > div { width: 60%; }
+.t-columns-2 li.width-all > label { width: 17.5%; }
+.t-columns-2 li.width-all > div { width: 80%; margin-left: 1%; }
+.t-columns-3 .t-columns-group { padding-right: 6%; }
+.t-columns-3 li { width: 33.33%; }
+.t-columns-3 li > label { width: 36%; }
+.t-columns-3 li > div { width: 58%; }
+.t-columns-3 li.width-all > label { width: 12%; }
+.t-columns-3 li.width-all > div { width: 86%; margin-left: 0.666%; }
+.t-columns-4 li { width: 25%; }
+.t-columns-4 li > label { width: 26%; }
+.t-columns-4 li > div { width: 68%; }
+.t-columns-4 li.width-half > label { width: 16%; }
+.t-columns-4 li.width-half > div { width: 81%; margin-left: 1%; }
+.t-columns-4 li.width-all > label { width: 8%; }
+.t-columns-4 li.width-all > div { width: 90.5%; margin-left: 0.5%; }
+.t-columns-5 li { width: 20%; }
+.t-columns-5 li > label { width: 32%; }
+.t-columns-5 li > div { width: 62%; }
+.t-columns-5 li.width-half > label { width: 16%; }
+.t-columns-5 li.width-half > div { width: 81%; margin-left: 1%; }
+.t-columns-5 li.width-all > label { width: 8%; }
+.t-columns-5 li.width-all > div { width: 90.5%; margin-left: 0.5%; }
+.t-columns-group { margin: 0; padding: 0;}
+.t-columns-group:after, .t-columns-group:before { display: block; content: ""; clear: both; height: 0; font-size: 0; overflow: hidden; }
+.t-columns-group li { height: 36px; list-style: none; line-height: 36px; font-size: 12px; float: left; vertical-align: top; }
+.t-columns-group li > label { display: block; float: left; height: 36px; line-height: 36px; color: #666; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.t-columns-group li > label.necessary:before { content: "*"; color: #ff595f; }
+.t-columns-group li > div { display: block; float: left; height: 36px; color: #333; text-align: left;margin-left: 2%;}
+.t-columns-group li.width-half { width: 50%; }
+.t-columns-group li.width-all { width: 100%; height: auto; padding: 6px 0; }
+.t-columns-group li.width-all > div { height: auto; }
+.t-columns-group li > div input, .t-columns-group li > div select, .t-columns-group li > div textarea { padding: 3px; width: 100%; box-sizing: border-box; }
+.t-columns-group li > div input { height: 26px; line-height: 18px\9; margin-top: 5px; border: 1px solid #DDD; }
+.t-columns-group li > div label { padding: 0 20px}
+.t-columns-group li > div input[type="checkbox"], .t-columns-group li > div input[type="radio"], .t-columns-group li > div input.check, .t-columns-group li > div input.radio { border: none;  padding: auto;  width: auto;  margin-left: -20px;  position: absolute;}
+.t-columns-group li > div textarea { border: 1px solid #DDD; margin-top: 6px; line-height: 22px; resize: none; }
+.t-columns-group li > div .bg-date { background:#FFF url(../img/icon.png) no-repeat right -3px;}
+.t-columns-group li > div .bg-tree { background:#FFF url(../img/icon.png) no-repeat right -25px; }
+.t-columns-group li > div .bg-select { background:#FFF url(../img/icon.png) no-repeat right -46px; }
+.t-columns-group li.timegroup > div > div { width: 45%; float: left; }
+.t-columns-group li.timegroup > div > span { display: block; height: 36px; width: 10%; line-height: 36px; float: left; color: #666; text-align: center; }
+.t-columns-group li > div > .t-btn { line-height: 1;}
+
+/* highlight */
+.t-columns-group li > div input.error, .t-columns-group li > div select.error, .t-columns-group li > div textarea.warning { border: 1px solid #dd808e; background: #fff2f4; color: #d83030; }
+.t-columns-group li > div input.warning, .t-columns-group li > div select.warning, .t-columns-group li > div textarea.warning { border: 1px solid #dfc48c; background: #fff8d5; color: #ad8032; }
+.t-columns-group li > div input.success, .t-columns-group li > div select.success, .t-columns-group li > div textarea.success { border: 1px solid #8ec73b; background: #f7ffeb; color: #6ba21c; }
+
+/* t-list-btns */
+.t-list-btns { padding: 6px 10px; margin-top: 10px; background: #f1f5f8; border-bottom: 1px solid #e6ecec; vertical-align: middle;}
+.t-list-btns:after, .t-list-btns:before { display: block; content: ""; clear: both; height: 0; font-size: 0; overflow: hidden; }
+.t-list-btns > p, .t-list-btns > span { display: block; font-size: 14px; line-height: 28px; float: left; margin: 0; padding: 0; }
+.t-list-btns > p { color: #333;}
+.t-list-btns > span { color: #999; padding-left: 6px; }
+.t-list-btns > a { display: block; width: 28px; height: 28px;line-height: 28px; float: left; text-align: center; color: #999; text-decoration: none; padding-left: 10px;font-size: 18px;}
+.t-list-btns > a:hover { color: #333; }
+.t-list-btns > div { float: right; text-align: left; }
+.t-list-btns .t-btn { margin-left: 4px;}
+
+/* t-list-result */
+.t-list-result { margin-top: 6px;position: relative;}
+.t-list-result .t-table th { background: #FFF; border-top: none;}
+
+/*能耗量*/
+.t-list-btns > div .height-left{line-height: 28px}
+/*能耗图表*/
+.t-list-2 {padding:20px 0 10px 0;display:inline-block;width: 100%}
+.t-list-2 ul{list-style: none;margin: 0;padding: 0;}
+.t-list-2 li { width: 50%;list-style: none; float: left;vertical-align: top;display: block}
+ .chart-padding{padding: 45px 0 0 0; border: 1px solid #ddd;}
+ .chart-padding .unit{margin-top: -14px;padding-left: 10px}
+.t-list-2 li .panel-padding{padding:0 10px}
+/*首页模块*/
+.t-list-3 {display:inline-block;width: 100%}
+.t-list-3 ul{list-style: none;margin: 0;padding: 0;}
+.t-list-3 li { width: 33.33%;list-style: none; float: left;vertical-align: top;display: block}
+.t-list-3 li:lang(one){ width: 100%;}
+.t-list-3 li:lang(one-two){ width: 66.66%;}
+.t-list-3 li:lang(two){ width: 50%;}
+.t-list-3 .t-list-2{padding:10px 0}
+.t-list-3 li .box-padding{padding:10px}
+.t-list-3 li .text{width: 52px;}
+/*首页模块*/
+/*验证列表*/
+.valid .t-columns-2 .t-columns-group { padding-right: 15%; }
+.valid .t-columns-2 li { width: 50%; }
+.valid .t-columns-2 li > label { width: 46%; }
+.valid .t-columns-2 li > div { width: 50%; }
+/*模态框验证列表*/
+.t-columns-group .verify{height: 25px;margin-top: -10px;}
+.t-columns-group .verify-width-all{height: 25px;margin-top: -20px;}
+.t-columns-group.box{padding: 20% 0 0 20%;}
+.building-image{width: 100%}
+
+
+/*工单入口列表*/
+.order-list{margin-top: 60px;}
+.order-list li{width:20%; text-align: center; float: left;margin: 0;padding: 0;margin-bottom: 80px;}
+.order-list li a{font-size: 52px;}
+.order-list li .name{margin-top: 10px;}
+

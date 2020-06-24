@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bus.dao.BusDeviceMapper">
+
+    <select id="getBusDeviceList" resultType="java.util.Map" >
+        select bd.*,bu.realName from bus_device bd
+        LEFT JOIN bus_user bu
+        ON bd.createUser = bu.id
+        <where>
+            <if test="name != null and name != ''">
+                bd.`name` like #{name}
+            </if>
+        </where>
+        order by bd.createTime desc
+    </select>
+
+    <select id="countDeviceByName" resultType="java.lang.Integer" >
+        select count(id) from bus_device where `name` = #{name}
+    </select>
+
+    <insert id="save" parameterType="com.bus.model.BusDevice" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO `bus_device`
+        ( `name`, `price`,`balance`, `version`, `createUser`, `createTime`) VALUES
+        ( #{name}, #{price},#{balance}, #{version}, #{createUser}, #{createTime})
+    </insert>
+
+    <insert id="saveOperate" parameterType="com.bus.model.BusDeviceOperate" useGeneratedKeys="true" keyProperty="id" >
+       INSERT INTO `bus_device_operate`
+       (`deviceId`, `type`, `remark`, `operateAmount`, `balanceAmount`, `createUser`, `createTime`)
+       VALUES
+       (#{deviceId}, #{type}, #{remark}, #{operateAmount}, #{balanceAmount}, #{createUser}, #{createTime});
+
+    </insert>
+
+    <select id="getDeviceOperateList"  resultType="java.util.Map" >
+        select bdo.*,bd.`name`,bu.realName from bus_device_operate bdo
+        LEFT JOIN bus_device bd
+        ON bdo.deviceId = bd.id
+        LEFT JOIN bus_user bu
+        ON bdo.createUser = bu.id
+        <where>
+            <if test="name != null and name != ''">
+                bd.`name` like #{name}
+            </if>
+        </where>
+        order by bdo.createTime desc
+    </select>
+
+    <delete id="delete" >
+        delete from bus_device where id = #{id}
+    </delete>
+
+    <delete id="deleteOperate" >
+        delete from bus_device_operate where deviceId = #{id}
+    </delete>
+
+    <select id="get" resultType="com.bus.model.BusDevice" >
+        select * from bus_device where  id = #{id}
+    </select>
+
+    <update id="update" parameterType="com.bus.model.BusDevice" >
+        update bus_device
+        set balance = #{balance},
+            version = version + 1
+            where  id = #{id} and version = #{version}
+    </update>
+
+    <select id="getDeviceData" resultType="java.util.Map" >
+        select id ,CONCAT_WS('-库存为',`name`,balance) `name` from bus_device
+    </select>
+
+    <select id="getDeviceSellList" resultType="java.util.Map" >
+        select bod.*,bor.orderNo,buse.realName,buse.phone from bus_order_device bod
+        LEFT JOIN bus_order bor
+        ON bod.orderId = bor.id
+        LEFT JOIN bus_user buse
+        ON bod.userId = buse.id
+        <where>
+            <if test="userId != null">
+                bod.userId = #{userId}
+            </if>
+            <if test="name != null and name != ''">
+                bod.`name` like #{name}
+            </if>
+        </where>
+        order by bod.createTime desc
+    </select>
+</mapper>

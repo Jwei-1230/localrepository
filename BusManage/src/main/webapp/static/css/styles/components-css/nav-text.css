@@ -1,0 +1,64 @@
+
+/*body{margin:0;padding:0;overflow-x:hidden;}*/
+/*html, body{height:100%;}*/
+/*img{border:none;}*/
+/**{font-family:'微软雅黑';font-size:12px;color:#626262;}*/
+dl,dt,dd{display:block;margin:0;}
+a{text-decoration:none;}
+
+/*#bg{background-image:url(images/content/dotted.png);}*/
+/*.container{width:100%;height:100%;margin:auto;}*/
+
+/*left*/
+.left-menu{width:15%;position:absolute;bottom: 0;top: 0;background-color:#3992d0;}
+.left-menu dt{padding-left:40px;padding-right:10px;background-repeat:no-repeat;background-position:10px center;color:#f5f5f5;font-size:14px;position:relative;line-height:48px;cursor:pointer;}
+.left-menu dt.selected{background:#317eb4;}
+.left-menu dt:hover{background: rgba(0, 0, 0, 0.1);}
+.left-menu .dd-list{display: none;}
+.left-menu dd.selected a{background: rgba(0, 0, 0, 0.3);}
+.left-menu dd.none{background-color:#317eb4;}
+.left-menu dd.back{background-color: rgba(49, 126, 180, 0.60);}
+.left-menu dd a{
+    background-color:#317eb4;
+    padding-left:40px;
+    height: 36px;
+    line-height:36px;
+    cursor: pointer;
+    color:#f5f5f5;
+    display: block;
+}
+.left-menu dd a:hover{background: rgba(0, 0, 0, 0.3);}
+.left-menu dt span{position:absolute;right:15px;color: #ffffff;}
+dt b {position: absolute;left: 0;font-size: 18px;padding-left: 10px;}
+dd b {display:block;position: absolute;left: 0;padding-left: 15px;font-size: 10px;line-height: 20px;color: #ffffff;width: 15px}
+/*.custom dt{background-image:url(images/left/custom.png)}*/
+/*.channel dt{background-image:url(images/left/channel.png)}*/
+/*.app dt{background-image:url(images/left/app.png)}*/
+/*.cloud dt{background-image:url(images/left/cloud.png)}*/
+/*.syetem_management dt{background-image:url(images/left/syetem_management.png)}*/
+/*.source dt{background-image:url(images/left/source.png)}*/
+/*.statistics dt{background-image:url(images/left/statistics.png)}*/
+/*右侧容器*/
+.right-container{
+    margin-left: 15%;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+}
+.right-scroll{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+/*主体内容框控制*/
+.copyright-test {
+    width: 100%;
+    /*height: 44px;*/
+    line-height: 44px;
+    font-size: 14px;
+    text-align: center;
+    color: #5c5c5c;
+    background-color: #222;
+    position: fixed;
+    bottom: 0;
+    left:0;
+}

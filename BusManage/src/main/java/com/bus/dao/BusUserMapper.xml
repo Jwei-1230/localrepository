@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bus.dao.BusUserMapper">
+
+    <select id="getUserByUserName" resultType="com.bus.model.BusUser" >
+        select * from bus_user where userName = #{userName}
+    </select>
+
+    <select id="getBusUserList" resultType="java.util.Map" >
+        select * from bus_user
+        <where>
+            <if test="name != '' and name != null">
+                realName like #{name}
+            </if>
+            <if test="phone != '' and phone != null">
+                and phone like #{phone}
+            </if>
+            <if test="userId != null">
+                and id = #{userId}
+            </if>
+            and delFlag = 0
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.bus.model.BusUser" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO `bus_user`
+        (`userName`, `passWord`, `realName`, `role`, `phone`, `address`, `createTime`,delFlag)
+        VALUES
+        (#{userName}, #{passWord}, #{realName}, #{role}, #{phone}, #{address}, #{createTime},#{delFlag})
+    </insert>
+
+    <update id="delete" >
+        update bus_user
+        set delFlag = 1
+        where id = #{id}
+    </update>
+
+    <update id="updateUser" parameterType="com.bus.model.BusUser" >
+        UPDATE `bus_user`
+        SET
+        <if test="passWord != null and passWord != ''">
+            `passWord`=#{passWord},
+        </if>
+        `realName`=#{realName},
+        `phone`=#{phone},
+        `address`= #{address}
+         WHERE id = #{id}
+
+    </update>
+
+    <select id="countUserByName" resultType="java.lang.Integer" >
+        select count(id) from bus_user where userName = #{userName}
+    </select>
+
+    <select id="getUserByRole"  resultType="java.util.Map">
+        select id,realName `name` from  bus_user where role = #{role} and delFlag = 0
+    </select>
+</mapper>

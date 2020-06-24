@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bus.dao.BusOrderMapper">
+
+    <insert id="save" parameterType="com.bus.model.BusOrder" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `bus_manage`.`bus_order` ( `userId`,`orderNo`, `repairId`, `total`, `status`, `createTime`) VALUES
+        (#{userId},#{orderNo}, #{repairId}, #{total}, #{status}, #{createTime})
+    </insert>
+
+    <insert id="saveDevices"  useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `bus_order_device` ( `orderId`, `userId`, `name`, `price`, `amount`, `createTime`) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        ( #{order.id}, #{item.userId}, #{item.name}, #{item.price}, #{item.amount}, #{item.createTime})
+        </foreach>
+
+    </insert>
+
+    <select id="getCompleteOrderList" resultType="java.util.Map" >
+        select bo.*,bro.remark,bu.realName,bu.phone from bus_order bo
+        LEFT JOIN bus_repair_order bro
+        ON bo.repairId = bro.id
+        LEFT JOIN bus_user bu
+        ON bo.userId = bu.id
+        <where>
+            <if test="userId != null">
+                bo.userId = #{userId}
+            </if>
+            <if test="orderNo !=null and orderNo !='' ">
+                and bo.orderNo like #{orderNo}
+            </if>
+            <if test="name != null and name != ''">
+                and bu.realName like #{name}
+            </if>
+        </where>
+    </select>
+
+    <update id="doJieSuan"  >
+        update bus_order
+        set
+        status = 2
+        where  id = #{id}
+    </update>
+
+    <select id="getQiKuanList" resultType="java.util.Map" >
+        select a.total,bu.* from (
+        select userId,SUM(if(`status`=1,total,0)) total from bus_order ORDER BY userId ) a
+        LEFT JOIN bus_user bu
+        ON a.userId = bu.id
+        <where>
+            <if test="userId != null">
+                bu.id = #{userId}
+            </if>
+            <if test="name != null and name != ''">
+               and bu.realName = #{name}
+            </if>
+            and a.total > 0
+        </where>
+    </select>
+
+    <update id="doJieSuanAll" >
+        update bus_order
+        set
+        status = 2
+        where  userId = #{id} and status = 1
+    </update>
+
+    <select id="getYuShouKuanList" resultType="java.util.Map" >
+        select bo.*,bro.remark,bu.realName,bu.phone from bus_order bo
+        LEFT JOIN bus_repair_order bro
+        ON bo.repairId = bro.id
+        LEFT JOIN bus_user bu
+        ON bo.userId = bu.id
+        <where>
+            <if test="userId != null">
+                bo.userId = #{userId}
+            </if>
+            <if test="orderNo !=null and orderNo !='' ">
+                and bo.orderNo like #{orderNo}
+            </if>
+            <if test="name != null and name != ''">
+                and bu.realName like #{name}
+            </if>
+            and bo.status = 2
+        </where>
+    </select>
+</mapper>

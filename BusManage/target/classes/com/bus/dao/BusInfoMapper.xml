@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bus.dao.BusInfoMapper">
+
+    <select id="getBusList" resultType="java.util.Map" >
+        select bif.*,ber.realName,ber.phone  from bus_info bif
+        LEFT JOIN bus_user ber
+        ON bif.userId = ber.id
+        <where>
+            <if test="busName != '' and busName != null">
+                bif.`name` like #{busName}
+            </if>
+            <if test="name != '' and name != null">
+                and ber.realName like #{name}
+            </if>
+            <if test="userId != null">
+                and ber.id = #{userId}
+            </if>
+            and bif.delFlag = 0
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.bus.model.BusInfo" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO `bus_info`
+        ( `userId`, `name`, `total`, `buyTime`, `delFlag`, `createTime`) VALUES
+        (#{userId}, #{name}, #{total}, #{buyTime}, #{delFlag}, #{createTime});
+    </insert>
+
+    <update id="delete" >
+        update bus_info
+        set delFlag = 1
+        where id = #{id}
+    </update>
+
+    <update id="updateBus" parameterType="com.bus.model.BusInfo" >
+        UPDATE `bus_info`
+        SET
+        `name`=#{name},
+        `total`=#{total},
+        `buyTime`=#{buyTime}
+        WHERE `id`=#{id}
+    </update>
+
+    <select id="getBusByUserId"  resultType="java.util.Map">
+        select id ,`name` from  bus_info where  userId = #{userId} and delFlag = 0
+    </select>
+</mapper>

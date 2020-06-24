@@ -1,0 +1,296 @@
+﻿* {
+    position:relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /*content-box：
+    padding和border不被包含在定义的width和height之内。对象的实际宽度等于设置的width值和border、padding之和，即 ( Element width = width + border + padding)
+    此属性表现为标准模式下的盒模型。
+    border-box：
+    padding和border被包含在定义的width和height之内。对象的实际宽度就等于设置的width值，即使定义有border和padding也不会改变对象的实际宽度，即 ( Element width = width )*/
+}
+* html div, ul {	
+	margin:0;	
+	display:block;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+a, body, div, form, html, li, ol, span, ul {margin: 0;padding: 0;border: 0;vertical-align: baseline;}
+address, caption, cite, code, dfn, em, i, th, var, b {
+    font-style: normal;
+    font-weight: normal;
+}
+ul, li {
+    list-style:none;
+}
+body, button, input, select, textarea {
+  font:10px "\5FAE\8F6F\96C5\9ED1","Microsoft Yahei","Hiragino Sans GB",tahoma,arial,"\5B8B\4F53";
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased!important;/*文字抗锯齿变得平滑*/
+  color: #5a5a5a;
+  outline:none;
+}
+
+html,body {
+    background-color: #f1f1f1;    
+    /*rem是相对于根元素，即html中设定的字体大小*/
+    /*font-size:100%;/*页面字体将是以16px为基准*/
+    font-size:10px;/*页面字体将是以10px为基准*/
+    /*10 ÷ 16 × 100% = 62.5%*/    
+    width:100%;
+    height:100%;
+    margin:0 auto;
+    max-width:720px;
+    /*//防止用户复制和保存图片*/
+    -webkit-touch-callout: none; 
+    -webkit-text-size-adjust: none;
+    position:relative;
+}
+a
+{	
+	text-decoration:none;    
+	cursor:pointer;	
+}
+/**
+a:hover
+{
+	text-decoration:underline;
+	cursor:pointer;
+	-o-transition: color 0.25s ease-in;
+    -webkit-transition: color 0.25s ease-in;
+    -moz-transition: color 0.25s ease-in;
+    transition: color 0.25s ease-in;
+    color:#7ed1e8;
+}
+**/
+a, a:link, a:visited, a:hover {
+    color: #484848;
+}
+h2 
+{
+	font-size: 16px;
+	font-weight:normal;
+}
+img
+{	
+	border:0;    
+    display:block;
+}
+p
+{
+	word-wrap: break-word;
+}
+
+.column 
+{	
+	float:left;	
+}
+.full
+{
+	width:100%;	
+}
+.half
+{
+	width:50%;
+}
+.third
+{
+	width:30%;	
+}
+.w70
+{
+    width:70px;    
+}
+.dot_line
+{
+	border-top:1px dashed #cccccc;height: 1px;overflow:hidden;
+}
+
+.line
+{
+	border-top:1px solid #cccccc;height: 1px;overflow:hidden;
+}
+
+.eighty_percent
+{
+	width:80%;	
+}
+.hide
+{
+	display:none;	
+}
+.w
+{
+	margin:0 auto;
+	padding:0px;	
+	width: 1200px;
+	clear:both;	
+}
+.w1000
+{
+	margin:0 auto;
+	padding:0px;	
+	width: 1000px;
+	clear:both;     
+    position:relative;   
+}
+
+.red
+{
+	font-family: "宋体";
+	margin-right: 5px;
+	font-weight: normal;
+	color: #F00;
+}
+
+.formrow
+{
+	padding-top: 10px;
+	height: 58px;
+	line-height: 34px;	
+	clear:both;	
+}
+.normalField
+{
+	width:300px;
+    font-size:12px;    
+	min-height:25px;
+}
+.tipArea
+{
+	width:auto;
+	min-height:27px;
+	_height:27px;
+	line-height:27px;
+	vertical-align:middle;
+	font-family:Arial,宋体;
+	font-size:12px;
+	margin-left:12px;
+}
+.form_caption
+{
+	width:200px;	
+	height: 58px;
+	line-height:34px;
+	vertical-align:middle;
+	font-size:14px;
+	color:#333;
+	text-align:right;	
+}
+.form_element
+{
+	height:22px;	
+	line-height:22px;
+}
+input, textarea 
+{		
+	color: #333;
+	resize: none;	
+}
+
+.clr
+{
+    overflow: hidden;
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    width: 0;
+    height: 0;
+    clear:both;
+}
+/*.clearfix:before {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}*/
+.clearfix:after 
+{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.h6
+{
+    height:6px;
+    clear:both;
+}
+.h10
+{
+    height:10px;    
+    _display:inline-block;
+    clear:both;        
+}
+.h16
+{
+    height:16px;
+    clear:both;    
+    _display:inline-block;
+}
+.h20
+{
+	height:20px;
+	overflow: hidden;
+    clear:both;    	
+}
+.h30
+{
+	height:30px;
+	overflow: hidden;
+    clear:both;    	
+}
+.h40
+{
+	height:40px;
+	overflow: hidden;
+    clear:both;    	
+}
+.fr
+{
+   float:right; 
+}
+.fl
+{
+	float:left;	
+}
+.note
+{   
+    padding:15px;    
+    background-color: #FFFFE5;
+    border: solid 1px #CCC;
+    margin:20px;
+    color:#666;
+    font-size:14px;
+}
+.note h2
+{
+    color: #66bcec;    
+}
+.note p
+{    
+    line-height:24px;    
+    font-size:14px;
+}
+.note i
+{
+    vertical-align:middle;    
+}
+.note .ex-content
+{
+    margin-left:2em;    
+}
+
+.ellipsis
+{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;            
+}
+.mb20
+{
+    margin-bottom:20px;    
+}

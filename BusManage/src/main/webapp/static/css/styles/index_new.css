@@ -1,0 +1,220 @@
+/* CSS Document */
+
+.index_panel {
+	padding: 10px;
+	background: #FFF;
+}
+
+.index_panel .title {
+	padding: 4px 0;
+	font-size: 14px;
+	color: #333;
+}
+
+.index_panel .title i {
+	color: #9cc813;
+	font-size: 18px;
+}
+
+/* 客户信息 */
+.customer_info {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 12px;
+}
+
+.customer_info tr td {
+	padding: 6px;
+	border: 1px solid #D8D8D8;
+	line-height: 20px;
+}
+/*.customer_info tr:first-child td {
+	border-top: none;
+}
+
+.customer_info tr td:nth-child(odd) {
+	background: #F6F6F6;
+	text-align: right;
+	color: #666;
+}
+
+.customer_info tr td:nth-child(even) {
+	background: #FFF;
+	text-align: left;
+	color: #333;
+}
+
+.customer_info tr td:nth-child(even) em {
+	color: #E00;
+	padding-right: 2px;
+}
+
+.customer_info tr:first-child td {
+	height: 32px;
+	background: #FFF !important;
+	text-align: left !important;
+}*/
+
+.customer_info tr td.customer_maininfo {
+	border-top: none;
+	height: 32px;
+	line-height: 32px;
+}
+
+.customer_info tr td.ctxt {
+	background: #F6F6F6;
+	text-align: right;
+	color: #666;
+}
+
+.customer_info tr td em {
+	color: #E00;
+	padding-right: 2px;
+}
+
+.customer_info tr td a.btn {
+	height: 26px;
+	line-height: 26px;
+}
+
+.info_item {
+	padding-left: 60px;
+	float: left;
+}
+
+.info_item i {
+	font-size: 16px;
+	color: #84c2e6;
+}
+
+.info_item em {
+	color: #888 !important;
+	font-weight: normal;
+	padding-right: 10px;
+}
+
+.info_item span {
+	color: #333;
+}
+
+/* 热门业务 */
+.hot_business {
+	width: 100%;
+	height: 146px;
+}
+
+.hot_business li {
+	box-sizing: border-box;
+	width: 24%;
+	height: 146px;
+	margin-right: 1.333333%;
+	float: left;
+	border: 1px solid #D8D8D8;
+}
+
+.hot_business li:last-child {
+	margin-right: 0;
+}
+
+.hot_business li > div {
+	float: left;
+}
+
+.hot_business li .hb_l {
+	width: 49%;
+	text-align: center;
+}
+
+.hot_business li .hb_l i {
+	font-size: 72px;
+	line-height: 146px;
+}
+
+.hot_business li:nth-child(1) {
+	border-bottom: 4px solid #9cc813;
+}
+
+.hot_business li:nth-child(2) {
+	border-bottom: 4px solid #339dd9;
+}
+
+.hot_business li:nth-child(3) {
+	border-bottom: 4px solid #f3b200;
+}
+
+.hot_business li:nth-child(4) {
+	border-bottom: 4px solid #f2600b;
+}
+
+.hot_business li:nth-child(1) i,.hot_business li:nth-child(1) h3 {
+	color: #9cc813;
+}
+
+.hot_business li:nth-child(2) i,.hot_business li:nth-child(2) h3 {
+	color: #339dd9;
+}
+
+.hot_business li:nth-child(3) i,.hot_business li:nth-child(3) h3 {
+	color: #f3b200;
+}
+
+.hot_business li:nth-child(4) i,.hot_business li:nth-child(4) h3 {
+	color: #f2600b;
+}
+
+.hot_business li .hb_r {
+	padding-top: 10px;
+	width: 50%;
+}
+
+.hot_business li .hb_r h3 {
+	font-size: 16px;
+	padding: 6px 0;
+}
+
+.hot_business li .hb_r a {
+	display: block;
+	line-height: 20px;
+	color: #777;
+	text-decoration: none;
+}
+
+.hot_business li .hb_r a:hover {
+	color: #333;
+}
+
+.hot_business li:after {
+	content: " ";
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+/* 重定义sn-list，遵循tab组件的结构和样式，仅在index_panel内有效 */
+.index_panel .sn-list tr td a {
+	color: #777;
+	text-decoration: none;
+	padding: 0 6px;
+}
+
+.index_panel .sn-list tr td a:hover {
+	color: #333;
+}
+
+.index_panel .sn-list tr td a i {
+	color: #84c2e6;
+}
+
+.index_panel .sn-list tbody > tr:nth-child(even) > td {
+	/*background: ;*/
+}
+
+/* 重定义sn-tab */
+.index_panel .sn-tab .contentArea {
+	border: none;
+	padding: 0;
+}
+.index_panel_box {
+	padding: 15px 0 10px 0;
+}
